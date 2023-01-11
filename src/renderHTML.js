@@ -1,13 +1,13 @@
 function teamCards(data) {
   const managerCard = (manager) => {
     return `
-    <div class="card text-dark bg-light mb-3 employee-card" style="max-width: 18rem;">
-      <div class="card-header">
+    <div class="card text-dark bg-light mb-3 employee-card card text-center" style="width: 18rem;">
+      <div class="card-header bg-info">
         <h4>${manager.getName()}</h4>
       </div>
       <div class="card-body">
         <h5 class="card-title">${manager.getRole()}</h5>
-        <ul>
+        <ul class="list-group">
           <li class="list-group-item">ID: ${manager.getId()}</li>
           <li class="list-group-item">Office Number: ${manager.getOffice()}</li>
           <li class="list-group-item">
@@ -19,13 +19,13 @@ function teamCards(data) {
   };
   const internCard = (intern) => {
     return `
-    <div class="card text-dark bg-light mb-3 employee-card" style="max-width: 18rem;">
-      <div class="card-header">
+    <div class="card text-dark bg-light mb-3 employee-card card text-center" style="width: 18rem;">
+      <div class="card-header bg-info">
         <h4>${intern.getName()}</h4>
       </div>
       <div class="card-body">
         <h5 class="card-title">${intern.getRole()}</h5>
-        <ul>
+        <ul class="list-group">
           <li class="list-group-item">ID: ${intern.getId()}</li>
           <li class="list-group-item">School: ${intern.getSchool()}</li>
           <li class="list-group-item">
@@ -36,13 +36,13 @@ function teamCards(data) {
     </div>`;
   };
   const engineerCard = (engineer) => {
-    return ` <div class="card text-dark bg-light mb-3 employee-card" style="max-width: 18rem;">
-    <div class="card-header">
+    return ` <div class="card text-dark bg-light mb-3 employee-card card text-center" style="width: 18rem;">
+    <div class="card-header bg-info">
       <h4>${engineer.getName()}</h4>
     </div>
     <div class="card-body">
       <h5 class="card-title">${engineer.getRole()}</h5>
-      <ul>
+      <ul class="list-group">
         <li class="list-group-item">ID: ${engineer.getId()}</li>
         <li class="list-group-item">Github: <a target="_blank" href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
         <li class="list-group-item">
@@ -74,10 +74,10 @@ function teamCards(data) {
   );
 
   return teamHTML.join("");
-};
+}
 
 module.exports = (data) => {
-  return`<!DOCTYPE html>
+  return `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="utf-8">
@@ -88,10 +88,10 @@ module.exports = (data) => {
       </head>
       <body>
         <div class="container-fluid">
-            <div class="jumbotron">
-              <h1 class= "text-center">My Team</h1>
+            <div class="jumbotron text-center display-1 p-1 m-2 bg-dark text-white">
+              <h1 class= "text-center display-1">My Team</h1>
               </div>
-              <div class="container row">
+              <div class="container-fluid justify-content-around row">
                 ${teamCards(data)}
               </div>
               </div>

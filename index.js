@@ -48,7 +48,7 @@ const askQuestions = function () {
             {
               type: "input",
               name: "email",
-              message: "Please enter the email adress of the manager:",
+              message: "Please enter the email address of the manager:",
               validate: (emailInput) => {
                 if (emailInput) {
                   return true;
