@@ -3,6 +3,7 @@ const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const renderHTML = require("./src/renderHTML");
 
 const teamArray = [];
 
@@ -198,7 +199,11 @@ function askQuestions() {
             teamArray.push(newEngineer);
             askQuestions();
           });
-      } else console.log("Team Created successfully!");
+      } else {
+        fs.writeFile("./dist/index.html", renderHTML(teamArray), (err) => {
+          err ? console.error(err) : console.log("Team created successfully!");
+        });
+      }
     });
 }
 
