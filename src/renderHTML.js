@@ -1,4 +1,4 @@
-const teamCards = (team) => {
+function teamCards(data) {
   const managerCard = (manager) => {
     return `
     <div class="card text-dark bg-light mb-3 employee-card" style="max-width: 18rem;">
@@ -56,19 +56,18 @@ const teamCards = (team) => {
   const teamHTML = [];
 
   teamHTML.push(
-    team
+    data
       .filter((employee) => employee.getRole() === "Manager")
       .map((manager) => managerCard(manager))
-      .join("")
   );
   teamHTML.push(
-    team
+    data
       .filter((employee) => employee.getRole() === "Intern")
       .map((intern) => internCard(intern))
       .join("")
   );
   teamHTML.push(
-    team
+    data
       .filter((employee) => employee.getRole() === "Engineer")
       .map((engineer) => engineerCard(engineer))
       .join("")
@@ -77,8 +76,8 @@ const teamCards = (team) => {
   return teamHTML.join("");
 };
 
-module.exports = (team) => {
-  `<!DOCTYPE html>
+module.exports = (data) => {
+  return`<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="utf-8">
@@ -93,7 +92,7 @@ module.exports = (team) => {
               <h1 class= "text-center">My Team</h1>
               </div>
               <div class="container row">
-                ${teamCards(team)}
+                ${teamCards(data)}
               </div>
               </div>
       </body>

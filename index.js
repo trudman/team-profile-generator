@@ -7,7 +7,7 @@ const renderHTML = require("./src/renderHTML");
 
 const teamArray = [];
 
-function askQuestions() {
+const askQuestions = function () {
   return inquirer
     .prompt({
       type: "list",
@@ -200,11 +200,15 @@ function askQuestions() {
             askQuestions();
           });
       } else {
-        fs.writeFile("./dist/index.html", renderHTML(teamArray), (err) => {
-          err ? console.error(err) : console.log("Team created successfully!");
-        });
+        writeFile();
       }
     });
+};
+
+function writeFile() {
+  fs.writeFile("./dist/index.html", renderHTML(teamArray), (err) => {
+    err ? console.error(err) : console.log("Team created successfully!");
+  });
 }
 
 askQuestions();
